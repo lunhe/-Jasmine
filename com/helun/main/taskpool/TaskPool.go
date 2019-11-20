@@ -30,8 +30,11 @@ func NewTaskPool(defaultWorker int ,workerNum int,cacheSize int) *TaskPool{
 	if cacheSize < mIN_CACHE_SIZE {
 		cacheSize = mIN_CACHE_SIZE
 	}
-	if defaultWorker == 0 {
+	if defaultWorker < mIN_WORKER_NUM {
 		defaultWorker = workerNum/2
+		if defaultWorker == mIN_WORKER_NUM {
+			defaultWorker = mIN_WORKER_NUM
+		}
 	}
 	taskPool := TaskPool{
 		EntryChannel: make(chan *Task,cacheSize),
