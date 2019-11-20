@@ -1,0 +1,33 @@
+﻿arm:(盒子)
+
+set CGO_ENABLED=0
+
+set GOARCH=arm
+
+set GOOS=linux
+
+set GOBIN=D:\
+
+go  build
+
+go install Application.go
+
+
+linux:x64(校)
+set CGO_ENABLED=0
+set GOOS=linux
+set GOARCH=amd64
+
+set GOBIN=D:\
+go  build
+
+go install Application.go
+
+
+WINDOWS:
+set CGO_ENABLED=0
+set GOOS=windows
+set GOARCH=amd64
+set GOBIN=D:\
+go build
+go install
